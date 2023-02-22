@@ -1,0 +1,42 @@
+{% extends "AppSabba/padre.html" %} 
+
+{% block listas %}
+<button>
+    <a href="{% url 'Crear Copilotos' %}">Nuevo Copiloto</a>
+</button>
+<table class="table">
+    
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido</th>
+        <th scope="col">Edad</th>
+        <th scope="col">Nacionalidad</th>
+      </tr>
+    </thead>
+
+    <tbody>
+        {% for x in object_list %}
+
+        <tr>
+            <th scope="row">{{x.id}}</th>
+            <td>{{x.nombre}}</td>
+            <td>{{x.apellido}}</td>
+            <td>{{x.edad}}</td>
+            <td>{{x.nacionalidad}}</td>
+            <td>
+                <button>
+                    <a href="{% url 'Editar Copilotos' x.id %}">Editar Copiloto</a>
+                </button>
+                <button>
+                    <a href="{% url 'Borrar Copilotos' x.id %}">Borrar Copiloto</a>
+                </button>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+
+
+{% endblock %}

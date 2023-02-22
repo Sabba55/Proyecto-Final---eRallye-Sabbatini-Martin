@@ -1,0 +1,55 @@
+{% extends "AppSabba/padre.html" %} 
+
+<!-- {% block titulo %}
+Esta es la lista de los entregables disponibles. 
+{% endblock %}  -->
+
+
+{% block listas %}
+<button> 
+    <a href="{% url 'Crear Pilotos' %}">Nuevo Piloto</a>
+</button>
+<button> 
+    <a href="{% url 'Crear Pilotos' %}">Buscar Piloto</a>
+</button>
+
+<table class="table">
+    
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido</th>
+        <th scope="col">Edad</th>
+        <th scope="col">Nacionalidad</th>
+        <th scope="col">Marca Vehiculo</th>
+        <th scope="col">Modelo Vehiculo</th>
+      </tr>
+    </thead>
+
+    <tbody>
+        {% for pilot in object_list %}
+
+        <tr>
+            <th scope="row">{{pilot.id}}</th>
+            <td>{{pilot.nombre}}</td>
+            <td>{{pilot.apellido}}</td>
+            <td>{{pilot.edad}}</td>
+            <td>{{pilot.nacionalidad}}</td>
+            <td>{{pilot.marca_vehiculo}}</td>
+            <td>{{pilot.modelo_vehiculo}}</td>
+            <td>
+                <button>
+                    <a href="{% url 'Editar Pilotos' pilot.id %}">Editar Piloto</a>
+                </button>
+                <button>
+                    <a href="{% url 'Borrar Pilotos' pilot.id %}">Borrar Piloto</a>
+                </button>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+
+
+{% endblock %}

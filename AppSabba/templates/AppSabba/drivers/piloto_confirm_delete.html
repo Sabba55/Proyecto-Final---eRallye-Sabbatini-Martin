@@ -1,0 +1,18 @@
+{% extends "AppSabba/padre.html" %}
+
+<!-- {% block titulo %}
+Aca borras cursos!
+{% endblock %}  -->
+
+
+{% block listas %}
+
+
+<form action="" method="POST "> {% csrf_token %}
+
+    ¿Estas seguro que deseas borrar a "{{object.nombre}} {{object.apellido}}"?
+
+    <input type="submit" value="Enviar">
+</form>
+
+{% endblock %} 
